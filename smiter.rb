@@ -73,7 +73,7 @@ puts "Will free up #{human_size(to_delete)} to reach #{human_size(FREE_TARGET)} 
 
 
 nfos = Dir["#{shrinkable_mount}/*/*.nfo"].reject { |nfo| nfo.end_with? '/tvshow.nfo' }
-nfos_ordered = nfos.sort_by { |f| File.ctime f }
+nfos_ordered = nfos.sort_by { |f| File.mtime f }
 
 freed_so_far = 0
 
